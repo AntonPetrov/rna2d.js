@@ -1,0 +1,27 @@
+body {
+  position: relative;
+  padding-top: 40px;
+}
+
+.jmol-viewer {
+  position: absolute;
+  left: 880px;
+  display: block; */
+  /* top: 480px; */
+}
+
+.jmol {
+  border: 1px solid #ddd;
+}
+
+.brush {
+  fill: #000;
+  fill-opacity: .125;
+  stroke: #B0A2A8;
+}
+
+.interaction {
+  stroke-width: 1;
+  stroke: black;
+  opacity: 1;
+}
