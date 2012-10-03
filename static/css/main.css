@@ -6,8 +6,8 @@ body {
 .jmol-viewer {
   position: absolute;
   left: 880px;
-  display: block; */
-  /* top: 480px; */
+  /* display: block; */
+  top: 480px;
 }
 
 .jmol {
