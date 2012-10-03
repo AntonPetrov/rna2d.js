@@ -4,10 +4,11 @@ body {
 }
 
 .jmol-viewer {
-  position: absolute;
-  left: 880px;
-  /* display: block; */
-  top: 480px;
+  position: fixed;
+  left: 760px;
+  top: 380px;
+  resize:both;
+  overflow:auto;
 }
 
 .jmol {
@@ -24,4 +25,64 @@ body {
   stroke-width: 1;
   stroke: black;
   opacity: 1;
+}
+
+.cWW, .ncWW {
+  stroke: black;
+  fill: black;
+}
+
+.tWW, .ntWW {
+  stroke: #3366FF;
+  fill: #1F3D99;
+}
+
+.cWH, .ncWH {
+  stroke: #00CC99;
+  fill: #007A5C;
+}
+
+.tWH, .ntWH {
+  stroke: #6600FF;
+  fill: #3D0099;
+}
+
+.cWS, .ncWS {
+  stroke: #009900;
+  fill: #005C00;
+}
+
+.cHH, .ncHH {
+  stroke: #FF9900;
+  fill: #995C00;
+}
+
+.cHS, .ncHS {
+  stroke: #00FF00;
+  fill: #009900;
+}
+
+.cSS, .ncSS {
+  stroke: #CC9900;
+  fill: #7A5C00;
+}
+
+.tSS, .ntSS {
+  stroke: #FF33CC;
+  fill: #991F7A;
+}
+
+.tHS, .ntHS {
+  stroke: #CC00FF;
+  fill: #7A0099;
+}
+
+.tHH, .ntHH {
+  stroke: #FF0066;
+  fill: #99003D;
+}
+
+.tWS, .ntWS {
+  stroke: #3333CC;
+  fill: #1F1F7A;
 }

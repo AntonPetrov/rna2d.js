@@ -1,13 +1,10 @@
 $(document).ready(function() {
   var plot = plot2D({
     width: 630, 
-    height: 1200, 
+    height: 795,
     onBrushUpdate: jmolShowSelection,
     onInteractionClick: jmolShowInteraction
   });
-
-  var motifs = {};
-  d3.json('static/data/16S-ecoli-motifs.js', function(d) { motifs = d; });
 
   d3.json('static/data/16S-ecoli.js', function(data) {
     plot.coordinates(data);
@@ -15,7 +12,21 @@ $(document).ready(function() {
     d3.csv('static/data/16S-ecoli-interactions.csv', function(data) {
       plot.interactions(data);
       d3.select('#rna-2d').call(plot);
+      plot.toggleInteraction('ncWW');
       plot.brush.enable();
+
+      $('#cww-toggle').toggleButtons(family_toggle('cWW'));
+      $('#tww-toggle').toggleButtons(family_toggle('tWW'));
+      $('#cwh-toggle').toggleButtons(family_toggle('cWH'));
+      $('#twh-toggle').toggleButtons(family_toggle('tWH'));
+      $('#cws-toggle').toggleButtons(family_toggle('cWS'));
+      $('#tws-toggle').toggleButtons(family_toggle('tWS'));
+      $('#chh-toggle').toggleButtons(family_toggle('cHH'));
+      $('#thh-toggle').toggleButtons(family_toggle('tHH'));
+      $('#chs-toggle').toggleButtons(family_toggle('cHS'));
+      $('#ths-toggle').toggleButtons(family_toggle('tHS'));
+      $('#css-toggle').toggleButtons(family_toggle('cSS'));
+      $('#tss-toggle').toggleButtons(family_toggle('tSS'));
     });
   });
 
@@ -33,18 +44,37 @@ $(document).ready(function() {
   };
 
   var family_toggle = function(family) {
+    var fam = $('.' + family);
+    if (fam.length == 0) {
+      fam = $('.n' + family);
+    }
+    var bg_color = fam.css('stroke');
+    var gradient = fam.css('fill');
     return toggler({
       onChange: function($e1, status, e) {
         plot.toggleInteraction(family);
+        plot.toggleInteraction('n' + family);
       },
-      width: 120,
+      width: 100,
+      style: {
+        custom: {
+          disabled: {
+            color: bg_color,
+            background: "#FEFEFE",
+            gradient: "#E6E6E6"
+          },
+          enabled: {
+            background: bg_color,
+            gradient: gradient
+          }
+        }
+      },
       label: {
-        enabled: 'Shown',
-        disabled: 'Hidden'
+        disabled: 'Show',
+        enabled: 'Hide'
       } 
     })
   };
-
 
   $('#mode-button').toggleButtons(toggler({
     onChange: function($el, status, e) {
@@ -56,55 +86,4 @@ $(document).ready(function() {
     }
   }));
 
-  $('#motif-box-toggle').toggleButtons(toggler({
-    onChange: function($e1, status, e) {
-      for(var id in motifs) {
-        plot.toggleNucleotideBox(id, motifs[id].nucleotides);
-      }
-    },
-    width: 120,
-    label: {
-      enabled: 'Shown',
-      disabled: 'Hidden'
-    }
-  }));
-
-  $('#motif-color-toggle').toggleButtons(toggler({
-    onChange: function($e1, status, e) {
-      var patt = /^HL/;
-      for(var id in motifs) {
-        var color = 'blue';
-        if (patt.test(id)) {
-          color = 'green';
-        }
-        plot.toggleNucleotideColor(id, color);
-      }
-    },
-    width: 120,
-    label: {
-      enabled: 'Shown',
-      disabled: 'Hidden'
-    }
-  }));
-
-  $('#cww-toggle').toggleButtons(family_toggle('cWW'));
-  $('#tww-toggle').toggleButtons(family_toggle('tWW'));
-  $('#cwh-toggle').toggleButtons(family_toggle('cWH'));
-  $('#twh-toggle').toggleButtons(family_toggle('tWH'));
-  $('#cws-toggle').toggleButtons(family_toggle('cWS'));
-  $('#tws-toggle').toggleButtons(family_toggle('tWS'));
-  $('#chh-toggle').toggleButtons(family_toggle('cHH'));
-  $('#thh-toggle').toggleButtons(family_toggle('tHH'));
-  $('#chs-toggle').toggleButtons(family_toggle('cHS'));
-  $('#ths-toggle').toggleButtons(family_toggle('tHS'));
-  $('#css-toggle').toggleButtons(family_toggle('cSS'));
-  $('#tss-toggle').toggleButtons(family_toggle('tSS'));
-
-  $('#mode-controls-title').click(function() {
-    $('#mode-controls').toggle();
-  });
-  $('#interaction-controls-title').click(function() {
-    $('#interaction-controls').toggle();
-  });
-  $('#interaction-controls').toggle();
 });
