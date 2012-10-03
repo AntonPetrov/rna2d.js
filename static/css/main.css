@@ -33,33 +33,39 @@ body {
 }
 
 .tWW, .ntWW {
-  stroke: #3366FF;
-  fill: #1F3D99;
+  stroke: #663300;
+  fill: #3D1F00;
 }
 
 .cWH, .ncWH {
-  stroke: #00CC99;
-  fill: #007A5C;
+  stroke: #00CC00;
+  fill: #007A00;
 }
 
+
 .tWH, .ntWH {
-  stroke: #6600FF;
-  fill: #3D0099;
+  stroke: #CC00FF;
+  fill: #7A0099;
 }
 
 .cWS, .ncWS {
+  stroke: #669900;
+  fill: #3D5C00;
+}
+
+.cHH, .ncHH {
   stroke: #009900;
   fill: #005C00;
 }
 
-.cHH, .ncHH {
-  stroke: #FF9900;
-  fill: #995C00;
+.tHH, .ntHH {
+  stroke: #6600FF;
+  fill: #3D0099;
 }
 
 .cHS, .ncHS {
-  stroke: #00FF00;
-  fill: #009900;
+  stroke: #FF9900;
+  fill: #995C00;
 }
 
 .cSS, .ncSS {
@@ -68,18 +74,13 @@ body {
 }
 
 .tSS, .ntSS {
-  stroke: #FF33CC;
-  fill: #991F7A;
+  stroke: #666699;
+  fill: #3D3D5C;
 }
 
 .tHS, .ntHS {
-  stroke: #CC00FF;
-  fill: #7A0099;
-}
-
-.tHH, .ntHH {
-  stroke: #FF0066;
-  fill: #99003D;
+  stroke: #3333FF;
+  fill: #1F1F99;
 }
 
 .tWS, .ntWS {
