@@ -10,9 +10,9 @@ $(document).ready(function() {
     plot.coordinates(data);
 
     d3.csv('static/data/16S-ecoli-interactions.csv', function(data) {
-      plot.interactions(data);
+      plot.connections(data);
       d3.select('#rna-2d').call(plot);
-      plot.toggleInteraction('ncWW');
+      plot.interactions.toggle('ncWW');
       plot.brush.enable();
 
       $('#cww-toggle').toggleButtons(family_toggle('cWW'));
