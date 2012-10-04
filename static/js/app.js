@@ -52,8 +52,8 @@ $(document).ready(function() {
     var gradient = fam.css('fill');
     return toggler({
       onChange: function($e1, status, e) {
-        plot.toggleInteraction(family);
-        plot.toggleInteraction('n' + family);
+        plot.interactions.toggle(family);
+        plot.interactions.toggle('n' + family);
       },
       width: 100,
       style: {
