@@ -3,6 +3,12 @@ body {
   padding-top: 40px;
 }
 
+.frame {
+  fill: #fff;
+  fill-opacity: .7;
+  stroke: #aaa;
+}
+
 .jmol-viewer {
   position: fixed;
   left: 760px;
