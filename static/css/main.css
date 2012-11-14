@@ -11,7 +11,7 @@ body {
 
 .jmol-viewer {
   position: fixed;
-  left: 760px;
+  left: 730px;
   top: 340px;
   resize:both;
   overflow:auto;
